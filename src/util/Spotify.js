@@ -1,5 +1,5 @@
 const clientId = '778db02ea45445f9b2df3db46e02c2e3';
-const redirectURI = 'https://purplelove.surge.sh';
+const redirectURI = 'https://purplelove.surge.sh/';
 
 let accessToken = '';
 let expirationTime = 0;

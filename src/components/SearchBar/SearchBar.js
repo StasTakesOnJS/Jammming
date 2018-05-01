@@ -8,6 +8,7 @@ class SearchBar extends Component {
 
     this.search = this.search.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this);
+    this.handleSearchKeyDown = this.handleSearchKeyDown.bind(this);
   }
 
   search() {
@@ -18,11 +19,17 @@ class SearchBar extends Component {
     this.setState({searchTerm: event.target.value})
   }
 
+  handleSearchKeyDown(event) {
+    if (event.keyCode === 13) {
+      this.props.onSearch(this.state.searchTerm);
+    }
+  }
+
   render() {
     return (
       <div className="SearchBar">
-        <input placeholder={this.state.searchTerm} onChange={this.handleTermChange} />
-        <a onClick={this.search}>SEARCH</a>
+        <input placeholder={this.state.searchTerm} onChange={this.handleTermChange} onKeyDown={this.handleSearchKeyDown} />
+        <a onClick={this.search} onKeyDown={this.search} autoFocus>SEARCH</a>
       </div>
     )
   }
